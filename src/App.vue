@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <app-header />
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import Vue from 'vue'
+import AppHeader from '@/components/AppHeader.vue'
 
 export default Vue.extend({
-  name: "App",
   components: {
-    HelloWorld
-  }
-});
+    AppHeader,
+  },
+  setup() {
+    return {}
+  },
+})
 </script>
 
 <style lang="scss">
@@ -22,8 +24,10 @@ export default Vue.extend({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: $black;
+}
+
+body {
+  margin: 0;
 }
 </style>
