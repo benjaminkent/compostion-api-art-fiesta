@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2>Harvard Art</h2>
+    <h2>Harvard Art - Working with the Vue Composition API</h2>
   </header>
 </template>
 

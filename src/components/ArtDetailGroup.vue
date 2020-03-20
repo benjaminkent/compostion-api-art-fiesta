@@ -1,15 +1,12 @@
 <template>
-  <div v-if="peopleCount > 0" class="art-detail-group">
+  <div class="art-detail-group">
     <div class="details">
       <p class="key">{{ props.detail }}:</p>
-      <router-link v-if="props.link" to="/">
+      <router-link class="link" v-if="props.link" to="/">
         <p>{{ props.value }}</p>
       </router-link>
-      <p v-else>{{ props.value }}</p>
+      <p v-else>{{ props.value ? props.value : 'Unknown' }}</p>
     </div>
-  </div>
-  <div v-else>
-    <h3>No artist details for this record.</h3>
   </div>
 </template>
 
@@ -21,7 +18,6 @@ export default Vue.extend({
     detail: String,
     link: Number,
     value: String,
-    peopleCount: Number,
   },
   setup(props) {
     return {
@@ -42,6 +38,12 @@ export default Vue.extend({
     }
     .key {
       margin-right: 7px;
+    }
+    .link {
+      color: $texas;
+    }
+    .link:hover {
+      color: $deep;
     }
   }
 }
