@@ -8,7 +8,7 @@
           :key="index"
           :detail="art.detail"
           :value="art.value"
-          :link="art.link"
+          :id="art.link"
         />
       </div>
     </div>
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { onMounted } from '@vue/composition-api'
 import ArtDetailGroup from '@/components/ArtDetailGroup.vue'
 import { useArt } from '@/composables/art'
 
@@ -30,11 +31,16 @@ export default Vue.extend({
     ArtDetailGroup,
   },
   setup() {
-    const { showLoading, artInfo } = useArt()
+    const { showLoading, artInfo, fetchRandomArt } = useArt()
+
+    onMounted(() => {
+      fetchRandomArt()
+    })
 
     return {
       showLoading,
       artInfo,
+      fetchRandomArt,
     }
   },
 })
