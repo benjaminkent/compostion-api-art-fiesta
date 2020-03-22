@@ -1,11 +1,5 @@
 import { computed, reactive, ref } from '@vue/composition-api'
-import axios from 'axios'
-
-const base = axios.create({
-  baseURL: 'https://api.harvardartmuseums.org',
-})
-
-const API_KEY = process.env.VUE_APP_HARVARD_ART_API_KEY
+import { harvardBase, API_KEY } from '@/config/axios'
 
 export const useArt = () => {
   // State
@@ -85,15 +79,15 @@ export const useArt = () => {
 
   // Actions
   const fetchRandomArt = async () => {
-    const response = await base.get(
-      `/object?apikey=${API_KEY}&sort=random&size=1`
+    const response = await harvardBase.get(
+      `/object${API_KEY}&sort=random&size=1`
     )
     artPiece.art = response.data
     loading.value = false
   }
 
   const fetchArtist = async (id: string) => {
-    const response = await base.get(`/person/${id}?apikey=${API_KEY}`)
+    const response = await harvardBase.get(`/person/${id}${API_KEY}`)
     artist.artistDetails = response.data
   }
 
