@@ -23,7 +23,7 @@ export const useArt = () => {
       displayname: '',
       birthplace: '',
       deathplace: '',
-      yearsActive: '',
+      displaydate: '',
       culture: '',
       url: '',
     },
@@ -37,7 +37,7 @@ export const useArt = () => {
         { detail: 'Name', value: artist.artistDetails.displayname },
         { detail: 'Birth place', value: artist.artistDetails.birthplace },
         { detail: 'Place of death', value: artist.artistDetails.deathplace },
-        { detail: 'Years active', value: artist.artistDetails.yearsActive },
+        { detail: 'Years active', value: artist.artistDetails.displaydate },
         { detail: 'Culture', value: artist.artistDetails.culture },
         {
           detail: 'Collections',
